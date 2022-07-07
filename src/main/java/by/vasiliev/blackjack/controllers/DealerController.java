@@ -16,8 +16,13 @@ import java.util.Map;
 @RequestMapping("/api/dealer")
 public class DealerController {
 
-    @Autowired
+
+    final
     DealerServiceImpl dealerService;
+    @Autowired
+    public DealerController(DealerServiceImpl dealerService) {
+        this.dealerService = dealerService;
+    }
 
 
     @GetMapping("deal")

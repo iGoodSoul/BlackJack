@@ -6,8 +6,6 @@ import by.vasiliev.blackjack.models.Table;
 import by.vasiliev.blackjack.models.dto.PlayerDTO;
 import by.vasiliev.blackjack.repositories.PlayerRepository;
 import by.vasiliev.blackjack.utilities.CustomModelMapper;
-import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,18 +16,18 @@ import java.util.Optional;
 public class PlayerServiceImpl implements PlayerService {
 
 
-    @Autowired
-    PlayerRepository playerRepository;
 
-    @Autowired
-    HandService handService;
+    private final PlayerRepository playerRepository;
+    private final HandService handService;
+    private final CustomModelMapper modelMapper;
+    private final Table table;
 
-    @Autowired
-    CustomModelMapper modelMapper;
-
-
-    @Autowired
-    Table table;
+    public PlayerServiceImpl(PlayerRepository playerRepository, HandService handService, CustomModelMapper modelMapper, Table table) {
+        this.playerRepository = playerRepository;
+        this.handService = handService;
+        this.modelMapper = modelMapper;
+        this.table = table;
+    }
 
     public static final String PLAYER_NOT_FOUND = "Player with id: %s was not found";
 
@@ -38,6 +36,8 @@ public class PlayerServiceImpl implements PlayerService {
     public static final String NOT_ENOUGH_BALANCE = "Player balance is not enough for player with id: %s";
 
     public static final String CANNOT_ADD_NEGATIVE_BALANCE = "Negative balance cannot be added: %s";
+
+
 
 
     @Override

@@ -21,8 +21,13 @@ public class HandServiceImpl implements HandService {
     public static final String CANNOT_SURRENDER_AGAINST_ACE = "You cannot surrender hands when dealer's first card is an Ace";
 
 
+
+    private final Dealer dealer;
+
     @Autowired
-    Dealer dealer;
+    public HandServiceImpl(Dealer dealer) {
+        this.dealer = dealer;
+    }
 
     @Override
     public void hit(Player player, int handId) throws ApiRequestException {

@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-@Entity
+//@Entity
 @Table(name = "hands")
 public final class Hand {
 

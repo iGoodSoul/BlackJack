@@ -2,6 +2,7 @@ package by.vasiliev.blackjack.utilities;
 
 import by.vasiliev.blackjack.models.Player;
 import by.vasiliev.blackjack.models.dto.PlayerDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.modelmapper.ModelMapper;
 
@@ -9,14 +10,17 @@ import org.modelmapper.ModelMapper;
 public class CustomModelMapper {
 
 
-    ModelMapper modelMapper = new ModelMapper();
+   private final ModelMapper modelMapper;
+
+    public CustomModelMapper() {
+        this.modelMapper = new ModelMapper();
+    }
 
     public Player convertFromPlayerDTO(PlayerDTO playerDTO){
         return modelMapper.map(playerDTO, Player.class);
     }
 
     public PlayerDTO convertFromPlayer(Player player){
-        modelMapper = new org.modelmapper.ModelMapper();
         return modelMapper.map(player, PlayerDTO.class);
     }
 

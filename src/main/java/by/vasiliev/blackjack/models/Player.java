@@ -5,7 +5,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Entity
+//@Entity
 @Table(name = "players")
 public class Player {
 

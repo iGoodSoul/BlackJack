@@ -2,6 +2,7 @@ package by.vasiliev.blackjack.models.card;
 
 
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import static by.vasiliev.blackjack.models.card.Rank.*;
@@ -72,7 +73,7 @@ public enum CardType {
 
     private final Suit suit;
 
-
+    @Autowired
     CardType(Rank rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;

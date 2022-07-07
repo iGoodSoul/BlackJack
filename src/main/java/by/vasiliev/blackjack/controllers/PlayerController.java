@@ -17,11 +17,18 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/players")
 public class PlayerController {
 
-    @Autowired
+
+    private final
     PlayerServiceImpl playerService;
 
-    @Autowired
+   private final
     CustomModelMapper modelMapper;
+
+    @Autowired
+    public PlayerController(PlayerServiceImpl playerService, CustomModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
+        this.playerService = playerService;
+    }
 
     @GetMapping
     public ResponseEntity<List<PlayerDTO>> getAllPlayers(){

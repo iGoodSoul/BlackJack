@@ -1,5 +1,6 @@
 package by.vasiliev.blackjack.exceptions;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ public class ApiException {
     private final HttpStatus status;
     private final String message;
     private final LocalDateTime timestamp;
+
 
     public ApiException(String message, HttpStatus status, LocalDateTime timestamp) {
         this.message = message;
